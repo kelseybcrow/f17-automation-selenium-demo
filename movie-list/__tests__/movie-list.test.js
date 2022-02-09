@@ -1,14 +1,14 @@
-const { Builder, Capabilities, By } = require("selenium-webdriver")
+const { Builder, Capabilities, By } = require('selenium-webdriver')
 require('chromedriver')
 
-const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 
 beforeAll(async () => {
     await driver.get('http://127.0.0.1:5500/movie-list/index.html')
-});
+})
 
 afterAll(async () => {
-    await driver.quit();
+    await driver.quit
 })
 
 test('add a movie', async () => {
@@ -19,13 +19,13 @@ test('add a movie', async () => {
     await theInput.sendKeys(searchTerm)
 
     const theButton = await driver.findElement(By.css('button'))
+    console.log(theResult)
 
-    await theButton.click();
+    await theButton.click()
 
     const theResult = await driver.findElement(By.xpath('//li/span')).getText()
-    
+
     expect(theResult).toBe(searchTerm)
 
     await driver.sleep(3000)
-
 })

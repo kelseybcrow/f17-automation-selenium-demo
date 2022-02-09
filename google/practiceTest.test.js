@@ -1,10 +1,10 @@
 // Here in our .test.ts file we want to import some stuff from Selenium-Webdriver
-// We import Builder and Capabilities so we can build a driver that will allow us 
+// We import Builder and Capabilities so we can build a driver that will allow us
 // to interact with the browser
-const {Builder, Capabilities} = require('selenium-webdriver')
+const { Builder, Capabilities } = require('selenium-webdriver')
 
 // And we are also importing a function here that will do a search on Google
-const {search} = require('./search')
+const { search } = require('./search')
 
 // We ALWAYS need to require chromedriver. We don't need to save to a variable since we just need to bring in chromedriver once and not reference it again.
 require('chromedriver')
@@ -27,4 +27,3 @@ afterAll(async () => {
 test('Google Search Test', async () => {
     await search(driver, 'Matrix Reloaded')
 })
-
