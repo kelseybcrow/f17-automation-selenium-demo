@@ -29,3 +29,28 @@ test('add a movie', async () => {
 
     await driver.sleep(3000)
 })
+
+test('we can cross off a movie', async () => {
+    const movieInput = await driver.findElement(By.xpath('//form/input'))
+
+    await movieInput.sendKeys('ET\n')
+
+    const movieLi = await driver.findElement(By.css('span'))
+
+    await movieLi.click()
+
+    const movieClass = await movieLi.getAttribute('class')
+    console.log(movieClass)
+
+    expect(movieClass).toBe('checked')
+
+    await driver.sleep(6000)
+})
+
+test('this is a test, only a test', async () => {
+    await driver.navigate().refresh()
+
+    await driver.sleep(2000)
+
+    await driver.navigate().to('https://www.google.com')
+})
